@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Salsa Teriyaki — Sitio oficial</title>
   <meta name="description" content="Salsa Teriyaki: musica, noticias, fotos y tienda oficial." />
-  <link rel="icon" type="image/png" href="favic.png" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favi.png" />
+  <!-- Fuente Akira Expanded -->
   <link href="https://fonts.cdnfonts.com/css/akira-expanded" rel="stylesheet">
   <style>
     :root {
-      --bg: #ffffff;
-      --surface: #f5f5f5;
-      --surface-2: #e0e0e0;
-      --text: #000000;
-      --muted: #555555;
-      --brand-1: #8DC63F;
-      --brand-2: #76b833;
+      --bg: #0b0c10;
+      --surface: #12131a;
+      --surface-2: #191a22;
+      --text: #f1f5f9;
+      --muted: #a8b0bd;
+      --brand-1: #ff4b1f;
+      --brand-2: #1fddff;
       --maxw: 1100px;
       --radius: 16px;
     }
@@ -26,7 +28,7 @@
     img{max-width:100%;display:block;transition:transform 0.3s ease;}
 
     /* NAV */
-    nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);background:rgba(255,255,255,0.9);border-bottom:1px solid #ccc;}
+    nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(8px);background:rgba(11,12,16,0.7);border-bottom:1px solid #1d2030;}
     .nav-inner{max-width:var(--maxw);margin:0 auto;padding:.75rem 1rem;display:flex;align-items:center;justify-content:space-between;}
     .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;letter-spacing:.4px;}
     .brand img{width:40px;height:40px;border-radius:10px;object-fit:cover;}
@@ -35,56 +37,58 @@
     .links a:hover{opacity:1;}
 
     /* HERO */
-    header.hero{position:relative;overflow:hidden;text-align:center;padding:0;height:700px;display:flex;flex-direction:column;justify-content:center;align-items:center;}
-    .hero-bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;z-index:-1;}
-    .hero h1{font-size:clamp(3rem,8vw,5rem);margin:0 0 1rem;color:var(--brand-1);}
-    .hero p{margin:0 auto 1.5rem;max-width:60ch;color:var(--brand-1);}
-    .cta{display:inline-block;margin-top:1rem;padding:.85rem 1.1rem;border-radius:999px;font-weight:700;background-color:var(--brand-1);color:#0c0c0f;transition:transform 0.3s, background-color 0.3s;}
-    .cta:hover{transform:scale(1.05);background-color:var(--brand-2);}
+    header.hero{position:relative;overflow:hidden;text-align:center;padding:5rem 1rem 4rem;}
+    .hero-bg{position:absolute;inset:0;background:radial-gradient(1200px 500px at 10% -10%,rgba(31,221,255,.25),transparent),radial-gradient(1200px 500px at 90% 10%,rgba(255,75,31,.25),transparent),linear-gradient(135deg,#141624,#0b0c10);animation:bgAnim 15s infinite alternate;z-index:-1;}
+    @keyframes bgAnim{0%{background-position:0% 0%,100% 0%,0 0}50%{background-position:10% 10%,90% 5%,5% 5%}100%{background-position:0% 0%,100% 0%,0 0;}}
+    .hero h1{font-size:clamp(3rem,8vw,5rem);margin:0 0 1rem;animation:fadeUp 1s ease forwards;opacity:0;}
+    .hero p{margin:0 auto 1.5rem;max-width:60ch;color:var(--muted);animation:fadeUp 1.2s ease forwards;opacity:0;}
+    .cta{display:inline-block;margin-top:1rem;padding:.85rem 1.1rem;border-radius:999px;font-weight:700;background:linear-gradient(135deg,var(--brand-1),var(--brand-2));color:#0c0c0f;transition:transform 0.3s;}
+    .cta:hover{transform:scale(1.05);}
+    @keyframes fadeUp{0%{opacity:0;transform:translateY(20px);}100%{opacity:1;transform:translateY(0);}}
 
     /* SECTIONS */
-    section{border-top:1px solid #ccc;padding:3rem 1rem;}
+    section{border-top:1px solid #1a1d2b;padding:3rem 1rem;}
     .wrap{max-width:var(--maxw);margin:0 auto;}
     h2.section-title{font-size:clamp(2rem,4vw,3rem);margin:0 0 1rem;}
-    p.lead{color:var(--muted);margin:0 0 1.25rem;text-align:center;}
+    p.lead{color:var(--muted);margin:0 0 1.25rem;}
 
     /* MUSIC */
     .music{display:grid;grid-template-columns:1fr;gap:1.5rem;align-items:start;}
-    .player{background:var(--surface);border:1px solid #ccc;border-radius:var(--radius);padding:1rem;}
-    .buttons{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;}
-    .btn{display:inline-block;padding:.65rem .85rem;border-radius:10px;background:var(--surface-2);border:1px solid #ccc;color:var(--text);transition:border-color 0.3s;}
-    .btn:hover{border-color:#999;}
+    .player{background:var(--surface);border:1px solid #212436;border-radius:var(--radius);padding:1rem;}
+    .buttons{display:flex;flex-wrap:wrap;gap:.6rem;}
+    .btn{display:inline-block;padding:.65rem .85rem;border-radius:10px;background:var(--surface-2);border:1px solid #22263a;color:var(--text);transition:border-color 0.3s;}
+    .btn:hover{border-color:#2b3150;}
 
     /* NEWS */
     .news-grid{display:grid;grid-template-columns:1fr;gap:1rem;}
-    .card{background:var(--surface);border:1px solid #ccc;border-radius:var(--radius);padding:1rem;}
-    .badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;font-size:.8rem;background:var(--brand-1);color:#0c0c0f;font-weight:700;}
+    .card{background:var(--surface);border:1px solid #212436;border-radius:var(--radius);padding:1rem;}
+    .badge{display:inline-block;padding:.25rem .5rem;border-radius:999px;font-size:.8rem;background:linear-gradient(135deg,var(--brand-1),var(--brand-2));color:#0c0c0f;font-weight:700;}
 
     /* GALLERY */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.8rem;}
-    .tile{overflow:hidden;border-radius:14px;border:1px solid #ccc;background:#f0f0f0;transition:transform 0.3s ease;}
+    .tile{overflow:hidden;border-radius:14px;border:1px solid #212436;background:#0f1118;transition:transform 0.3s ease;}
     .tile:hover{transform:translateY(-5px);}
     .tile img{transition:transform 0.3s ease,box-shadow 0.3s ease;}
-    .tile:hover img{transform:scale(1.08);box-shadow:0 10px 20px rgba(0,0,0,0.2);}
+    .tile:hover img{transform:scale(1.08);box-shadow:0 10px 20px rgba(0,0,0,0.4);}
 
     /* STORE */
     .store-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:2rem;}
-    .product{background:var(--surface);border:1px solid #ccc;border-radius:var(--radius);padding:1rem;text-align:center;transition:transform 0.3s ease;}
+    .product{background:var(--surface);border:1px solid #212436;border-radius:var(--radius);padding:1rem;text-align:center;transition:transform 0.3s ease;}
     .product:hover{transform:translateY(-5px);}
     .product img{border-radius:12px;transition:transform 0.3s ease,box-shadow 0.3s ease;}
-    .product:hover img{transform:scale(1.05);box-shadow:0 10px 20px rgba(0,0,0,0.2);}
+    .product:hover img{transform:scale(1.05);box-shadow:0 10px 20px rgba(0,0,0,0.4);}
     .product-title{margin:.5rem 0 0;font-weight:700;transition:color 0.3s,transform 0.3s;}
     .product-price{color:var(--muted);margin:.25rem 0 0;transition:color 0.3s,transform 0.3s;}
     .product:hover .product-title{color:var(--brand-2);transform:translateY(-3px);}
     .product:hover .product-price{color:var(--brand-1);transform:translateY(-3px);}
 
     /* CONTACT */
-    .contact{display:grid;grid-template-columns:1fr;gap:1rem;text-align:center;}
-    .list{display:grid;gap:.6rem;justify-content:center;}
-    .list a{display:inline-flex;align-items:center;gap:.5rem;justify-content:center;}
+    .contact{display:grid;grid-template-columns:1fr;gap:1rem;}
+    .list{display:grid;gap:.6rem;}
+    .list a{display:inline-flex;align-items:center;gap:.5rem;}
 
     /* FOOTER */
-    footer{border-top:1px solid #ccc;padding:2rem 1rem;color:var(--muted);text-align:center;}
+    footer{border-top:1px solid #1a1d2b;padding:2rem 1rem;color:var(--muted);text-align:center;}
 
     @media(min-width:800px){
       .music{grid-template-columns:1.2fr .8fr;}
@@ -97,14 +101,14 @@
   <nav>
     <div class="nav-inner">
       <div class="brand">
-        <img src="logo.png" alt="Logo Salsa Teriyaki"/>
+        <img src="log.png" alt="Logo Salsa Teriyaki"/>
         <span>Salsa Teriyaki</span>
       </div>
       <div class="links">
-        <a href="#tienda">Tienda</a>
         <a href="#musica">Musica</a>
         <a href="#noticias">Noticias</a>
         <a href="#galeria">Galeria</a>
+        <a href="#tienda">Tienda</a>
         <a href="#contacto">Contacto</a>
       </div>
     </div>
@@ -112,35 +116,11 @@
 
   <!-- HERO -->
   <header class="hero">
-    <img class="hero-bg" src="img/hero.jpg" alt="Hero Salsa Teriyaki">
+    <div class="hero-bg" aria-hidden="true"></div>
     <h1>Salsa Teriyaki</h1>
     <p class="lead">Escuchanos, mira fotos y compra nuestro merch oficial</p>
-    <a class="cta" href="https://open.spotify.com/artist/2dZesUXavV7zh2DOtRncm2" target="_blank" rel="noopener">Spotify</a>
+    <a class="cta" href="https://open.spotify.com/artist/2dZesUXavV7zh2DOtRncm2" target="_blank" rel="noopener">▶️ Spotify</a>
   </header>
-
-  <!-- STORE (AHORA SEGUNDA SECCIÓN) -->
-  <section id="tienda">
-    <div class="wrap">
-      <h2 class="section-title">Tienda Oficial</h2>
-      <div class="store-grid">
-        <div class="product">
-          <img src="img/producto1.jpg" alt="Producto 1">
-          <h3 class="product-title">Playera Salsa Teriyaki</h3>
-          <p class="product-price">$599 MXN</p>
-        </div>
-        <div class="product">
-          <img src="img/producto2.jpg" alt="Producto 2">
-          <h3 class="product-title">CD + DVD</h3>
-          <p class="product-price">$499 MXN</p>
-        </div>
-        <div class="product">
-          <img src="img/producto3.jpg" alt="Producto 3">
-          <h3 class="product-title">COMBO PLAYERA + CD + DVD</h3>
-          <p class="product-price">$899 MXN</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- MUSIC -->
   <section id="musica">
@@ -190,6 +170,30 @@
     </div>
   </section>
 
+  <!-- STORE -->
+  <section id="tienda">
+    <div class="wrap">
+      <h2 class="section-title">Tienda Oficial</h2>
+      <div class="store-grid">
+        <div class="product">
+          <img src="img/producto1.jpg" alt="Producto 1">
+          <h3 class="product-title">Playera Salsa Teriyaki</h3>
+          <p class="product-price">$599 MXN</p>
+        </div>
+        <div class="product">
+          <img src="img/producto2.jpg" alt="Producto 2">
+          <h3 class="product-title">CD + DVD</h3>
+          <p class="product-price">$499 MXN</p>
+        </div>
+        <div class="product">
+          <img src="img/producto3.jpg" alt="Producto 3">
+          <h3 class="product-title">COMBO PLAYERA + CD + DVD</h3>
+          <p class="product-price">$899 MXN</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contacto">
     <div class="wrap">
@@ -198,7 +202,7 @@
         <div>
           <p class="lead">Prensa, shows o colaboraciones</p>
           <div class="list">
-            <a href="mailto:salsateriyaki5@gmail.com">📧 salsateriyaki5@gmail.com</a>
+            <a href="mailto:contacto@salsateriyaki.com">📧 salsateriyaki5@gmail.com</a>
             <a href="https://instagram.com/_salsateriyaki" target="_blank">📷 Instagram @_salsateriyaki</a>
             <a href="https://open.spotify.com/artist/2dZesUXavV7zh2DOtRncm2" target="_blank">🎵 Spotify</a>
           </div>

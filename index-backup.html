@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Salsa Teriyaki — Sitio oficial</title>
+  <meta name="description" content="Salsa Teriyaki: Math rock / rock alternativo desde México. Música, noticias, fotos y contacto." />
+  <!-- Favicon (opcional). Coloca un archivo favicon.png en la carpeta del proyecto -->
+  <link rel="icon" type="image/png" href="favi.png" />
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --surface: #12131a;
+      --surface-2: #191a22;
+      --text: #f1f5f9;
+      --muted: #a8b0bd;
+      --brand-1: #ff4b1f;
+      --brand-2: #1fddff;
+      --maxw: 1100px;
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji"; background: var(--bg); color: var(--text); }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; backdrop-filter: blur(8px); background: rgba(11,12,16,0.7); border-bottom: 1px solid #1d2030; }
+    .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: .75rem 1rem; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: .6rem; font-weight: 800; letter-spacing: .4px; }
+    .brand img { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; }
+    .links { display: flex; gap: 1rem; }
+    .links a { opacity: .9; }
+    .links a:hover { opacity: 1; }
+
+    /* HERO */
+    header.hero { position: relative; overflow: clip; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(1200px 500px at 10% -10%, rgba(31,221,255,.25), transparent), radial-gradient(1200px 500px at 90% 10%, rgba(255,75,31,.25), transparent), linear-gradient(135deg, #141624, #0b0c10); }
+    .hero { position: relative; max-width: var(--maxw); margin: 0 auto; padding: 5rem 1rem 4rem; text-align: center; }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 4rem); margin: 0 0 .5rem; line-height: 1.05; }
+    .hero p { margin: 0 auto 1.5rem; max-width: 60ch; color: var(--muted); }
+    .cta { display: inline-block; margin-top: 1rem; padding: .85rem 1.1rem; border-radius: 999px; font-weight: 700; background: linear-gradient(135deg, var(--brand-1), var(--brand-2)); color: #0c0c0f; }
+
+    /* SECTIONS */
+    section { border-top: 1px solid #1a1d2b; padding: 3rem 1rem; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; }
+    h2.section-title { font-size: clamp(1.4rem, 3vw, 2rem); margin: 0 0 1rem; }
+    p.lead { color: var(--muted); margin: 0 0 1.25rem; }
+
+    /* MUSIC */
+    .music { display: grid; grid-template-columns: 1fr; gap: 1.5rem; align-items: start; }
+    .player { background: var(--surface); border: 1px solid #212436; border-radius: var(--radius); padding: 1rem; }
+    .buttons { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .btn { display: inline-block; padding: .65rem .85rem; border-radius: 10px; background: var(--surface-2); border: 1px solid #22263a; color: var(--text); }
+    .btn:hover { border-color: #2b3150; }
+
+    /* NEWS */
+    .news-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    .card { background: var(--surface); border: 1px solid #212436; border-radius: var(--radius); padding: 1rem; }
+    .badge { display: inline-block; padding: .25rem .5rem; border-radius: 999px; font-size: .8rem; background: linear-gradient(135deg, var(--brand-1), var(--brand-2)); color: #0c0c0f; font-weight: 700; }
+
+    /* GALLERY */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .8rem; }
+    .tile { overflow: hidden; border-radius: 14px; border: 1px solid #212436; background: #0f1118; }
+    .tile img { transition: transform .35s ease; }
+    .tile:hover img { transform: scale(1.04); }
+
+    /* CONTACT */
+    .contact { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    .list { display: grid; gap: .6rem; }
+    .list a { display: inline-flex; align-items: center; gap: .5rem; }
+    .muted { color: var(--muted); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid #1a1d2b; padding: 2rem 1rem; color: var(--muted); }
+
+    /* MEDIA QUERIES */
+    @media (min-width: 800px) {
+      .music { grid-template-columns: 1.2fr .8fr; }
+      .contact { grid-template-columns: .8fr 1.2fr; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="brand">
+        <!-- Logo: coloca un archivo logo.png de 512x512 aprox o elimina la img -->
+        <img src="log.png" alt="Logo Salsa Teriyaki" />
+        <span>Salsa Teriyaki</span>
+      </div>
+      <div class="links">
+        <a href="#musica">Música</a>
+        <a href="#noticias">Noticias</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero">
+      <h1>Math rock con melancolía</h1>
+      <p class="lead">Salsa Teriyaki — rock alternativo desde México. Escúchanos, mira fotos y entérate de lanzamientos.</p>
+      <a class="cta" href="https://open.spotify.com/artist/2dZesUXavV7zh2DOtRncm2" target="_blank" rel="noopener">▶️ Escúchanos en Spotify</a>
+    </div>
+  </header>
+
+  <!-- MUSIC -->
+  <section id="musica">
+    <div class="wrap">
+      <h2 class="section-title">Música</h2>
+      <p class="lead">Reproductor directo y enlaces a plataformas.</p>
+      <div class="music">
+        <div class="player">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/2dZesUXavV7zh2DOtRncm2?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div>
+          <div class="buttons">
+            <a class="btn" href="https://open.spotify.com/artist/2dZesUXavV7zh2DOtRncm2" target="_blank" rel="noopener">Spotify</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">YouTube</a>
+            <a class="btn" href="#" target="_blank" rel="noopener">Bandcamp</a>
+            <a class="btn" href="https://instagram.com/_salsateriyaki" target="_blank" rel="noopener">Instagram</a>
+          </div>
+          <p class="muted" style="margin-top:.6rem">(Añade/actualiza los enlaces que uses)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS / RELEASES -->
+  <section id="noticias">
+    <div class="wrap">
+      <h2 class="section-title">Noticias & Lanzamientos</h2>
+      <div class="news-grid">
+        <article class="card">
+          <span class="badge">Nuevo</span>
+          <h3 style="margin:.6rem 0 0">Álbum en camino</h3>
+          <p class="muted">Estamos preparando material nuevo. Fecha tentativa: <strong>por anunciar</strong>. Mantente al tanto aquí y en Instagram.</p>
+        </article>
+        <!-- Duplica este bloque <article> para agregar más noticias -->
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="galeria">
+    <div class="wrap">
+      <h2 class="section-title">Galería</h2>
+      <p class="lead">Coloca tus fotos en la carpeta <code>img/</code> y cambia los src de abajo.</p>
+      <div class="grid">
+        <!-- Reemplaza estas imágenes por tus archivos reales (por ejemplo img/show-01.jpg) -->
+        <div class="tile"><img src="img/01.jpg" alt="Salsa Teriyaki en vivo 1" /></div>
+        <div class="tile"><img src="img/02.jpg" alt="Salsa Teriyaki en vivo 2" /></div>
+        <div class="tile"><img src="img/03.jpg" alt="Salsa Teriyaki en vivo 3" /></div>
+        <div class="tile"><img src="img/04.jpg" alt="Salsa Teriyaki en vivo 4" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contacto">
+    <div class="wrap">
+      <h2 class="section-title">Contacto</h2>
+      <div class="contact">
+        <div>
+          <p class="lead">¿Prensa, shows o colaboraciones?</p>
+          <div class="list">
+            <a href="mailto:contacto@salsateriyaki.com">📧 contacto@salsateriyaki.com</a>
+            <a href="https://instagram.com/_salsateriyaki" target="_blank" rel="noopener">📷 Instagram @_salsateriyaki</a>
+            <a href="https://open.spotify.com/artist/2dZesUXavV7zh2DOtRncm2" target="_blank" rel="noopener">🎵 Spotify</a>
+          </div>
+          <p class="muted">(Si aún no tienes correo de dominio propio, reemplaza por tu Gmail o deja solo Instagram).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      © 2025 Salsa Teriyaki — Todos los derechos reservados
+    </div>
+  </footer>
+</body>
+</html>
+
